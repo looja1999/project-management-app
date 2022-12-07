@@ -1,8 +1,4 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import Register from '../components/Authentication/Register';
 import { Fragment, useEffect } from 'react';
-import LoginPage from './authentication/Login';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Dashboard from './dashboard/index';
 import { useSession, getSession } from 'next-auth/client'; 
@@ -10,7 +6,6 @@ import { useSession, getSession } from 'next-auth/client';
 import { useState } from 'react';
 
 const theme = createTheme();
-
 
 export default function Home() {
   
@@ -21,7 +16,7 @@ export default function Home() {
     getSession().then(
       session => {
         if(!session){
-          window.location.href = './authentication/login'; 
+          window.location.href = '/authentication/login'; 
         } else {
           setIsLoading(false); 
           setLoadedSession(session)
